@@ -18,6 +18,7 @@ import { TRANSFORMERS } from "@lexical/markdown"
 import { editorTheme } from "../editor-theme"
 import { ToolbarPlugin } from "./plugins/toolbar-plugin"
 import { AutoLinkPlugin } from "@lexical/react/LexicalAutoLinkPlugin"
+import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin"
 import { LinkPreviewPlugin } from "./plugins/link-preview-plugin"
 
 const URL_MATCHER =
@@ -39,7 +40,7 @@ const MATCHERS = [
 
 export function TextEditor() {
   const initialConfig = {
-    namespace: "GoogleDocsPlayground",
+    namespace: "AgiDocs",
     theme: editorTheme,
     nodes: [
       HeadingNode,
@@ -66,7 +67,7 @@ export function TextEditor() {
             }
             placeholder={
               <div className="pointer-events-none absolute top-4 left-4 text-sm text-muted-foreground/60 select-none">
-                Type text, use markdown syntax like # Heading or * list items...
+                Start typing now...
               </div>
             }
             ErrorBoundary={LexicalErrorBoundary}
@@ -75,6 +76,7 @@ export function TextEditor() {
           <HistoryPlugin />
           <ListPlugin />
           <LinkPlugin />
+          <AutoFocusPlugin />
           <AutoLinkPlugin matchers={MATCHERS} />
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
         </div>
