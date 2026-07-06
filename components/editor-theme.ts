@@ -1,4 +1,3 @@
-// components/ui/editor/editor-theme.ts
 import { EditorThemeClasses } from "lexical"
 
 export const editorTheme: EditorThemeClasses = {
