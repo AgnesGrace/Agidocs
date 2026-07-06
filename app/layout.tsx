@@ -4,6 +4,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 import { Metadata } from "next"
+import { ClerkProvider } from "@clerk/nextjs"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -34,7 +35,9 @@ export default function RootLayout({
       )}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <ClerkProvider>{children}</ClerkProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
